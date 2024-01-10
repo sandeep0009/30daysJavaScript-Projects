@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <strong>Learn how to append elements</strong>
+
+    <input id="input" type="text" placeholder="Enter text you want to append" />
+
+    <button onclick="Append() ">Append List Vlaues</button>
+
+
+    <button onclick="Clear()">Clear</button>
+
+    <div class="container" id="container"></div>
+
+    <script>
+      let container = document.getElementById("container");
+
+      let Append = () => {
+        let val = document.getElementById("input").value;
+
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+        li.textContent = val;
+
+        ul.appendChild(li);
+        container.appendChild(ul);
+      }
+
+      let Clear=()=>{
+        document.getElementById('input').value=""
+      }
+
+  
+    </script>
+  </body>
+</html>

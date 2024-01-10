@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather APP</title>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="container">
+            <input type="text" placeholder="Enter your Place" id="cityName">
+
+            <button onclick="searchCity()">Search</button>
+        </div>
+
+
+    </div>
+
+    <div class="container-weather" id="weather">
+        <strong id="humidity"></strong>
+        <p id="temp"></p>
+        <p id="windSpeed"></p>
+      
+
+    </div>
+
+
+
+    <script>
+
+        let cityName=document.getElementById('cityName');
+
+        const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Seattle';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '66b66ada49mshea58b610012ec5dp1d4606jsn316ca4ddca33',
+		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+
+      
+
+        console.log(cityName.value)
+
+        let searchCity=async()=>{
+            try{
+                const res= await fetch(url,options)
+            const data=await res.json();
+            console.log(data);
+
+            console.log(data.humidity)
+
+            document.getElementById('humidity').innerText=`Humidity:${data.humidity}`;
+            document.getElementById('temp').innerText=`Temp:${data.temp}`;
+            document.getElementById('windSpeed').innerText=`Wind-Speed:${data.wind_speed}`
+
+        
+
+            }
+
+            catch(error){
+                console.log(error)
+            }
+           
+        }
+
+    
+    </script>
+    
+</body>
+</html>

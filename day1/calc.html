@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin:100px auto;
+        justify-content: center;      
+        height: 420px;
+        width: 320px;
+        background-color: rgb(72, 57, 93);
+        border-radius: 20px;
+    }
+
+    .container-buttons{
+        display: flex;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    button{
+    margin: 12px 14px 14px 14px;
+    height: 40px;
+    width: 50px;
+    border-radius: 12px ;
+    border: 1px transparent;
+    background-color: rgb(115, 99, 138);;
+    color: white;
+    cursor: pointer;
+    }
+
+    input{
+        background-color: rgb(115, 99, 138);;
+        color: white;
+        outline: none;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px transparent;
+        margin: 12px 12px 0px 12px;
+       
+
+    }
+</style>
+<body>
+
+
+
+    <div class="container">
+
+        <input type="text" id="input"  readonly>
+
+        <div class="container-buttons">
+
+            <button onclick="getValue(event)">AC</button>
+            <button onclick="getValue(event)">Del</button>
+            <button onclick="getValue(event)">%</button>
+            <button onclick="getValue(event)">/</button>
+        </div>
+
+        <div class="container-buttons">
+            <button onclick="getValue(event)">7</button>
+            <button onclick="getValue(event)">8</button>
+            <button onclick="getValue(event)">9</button>
+            <button onclick="getValue(event)">*</button>
+
+
+            
+        </div>
+
+
+        <div class="container-buttons">
+            <button onclick="getValue(event)">4</button>
+            <button onclick="getValue(event)">5</button>
+            <button onclick="getValue(event)">6</button>
+            <button onclick="getValue(event)">-</button>
+
+
+
+        </div>
+
+
+        <div class="container-buttons">
+
+            <button onclick="getValue(event)">1</button>
+            <button onclick="getValue(event)">2</button>
+            <button onclick="getValue(event)">3</button>
+            <button onclick="getValue(event)">+</button>
+
+
+
+        </div>
+
+        <div class="container-buttons">
+
+            <button onclick="getValue(event)">0</button>
+            <button onclick="getValue(event)">00</button>
+            <button onclick="getValue(event)">.</button>
+            <button onclick="getValue(event)">=</button>
+        </div>
+
+   
+      
+       
+    </div>
+
+
+  
+    
+    <script>
+
+        let getValue=(event)=>{
+            let input=document.getElementById('input');
+            let button=event.target.innerText;
+
+     
+            let string=input.value
+           
+
+         
+            if(button=='='){
+
+                string=eval(string);
+                input.value=string
+            }
+
+            else if(button=='AC'){
+                string="";
+                input.value=string
+            }
+            else if(button=='Del'){
+                string = string.slice(0, -1);
+                input.value = string;
+             
+            }
+            else{
+                string= string+button;
+                input.value=string
+            }
+  
+            
+
+
+        }
+    </script>
+    
+</body>
+</html>
