@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordian(DAY3)</title>
+  </head>
+  <style>
+
+
+.accordian{
+    width: 80%;
+    height: 40px;
+    background-color: rgb(126, 131, 131);
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    padding: 12px;
+    border: none;
+    margin-top: 12px;
+}
+    
+
+.panel{
+    display: none;
+    overflow: hidden;
+}
+
+  </style>
+
+
+
+
+  <body>
+
+
+    <button class="accordian">Section1</button>
+
+    <div class="panel">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis enim sed debitis similique, officiis reprehenderit voluptatibus recusandae esse eos ex, accusantium assumenda odit nesciunt impedit natus expedita porro. Exercitationem, eius!
+    </div>
+
+
+    
+    <button class="accordian">Section2</button>
+
+    <div class="panel">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis enim sed debitis similique, officiis reprehenderit voluptatibus recusandae esse eos ex, accusantium assumenda odit nesciunt impedit natus expedita porro. Exercitationem, eius!
+    </div>
+
+
+    
+    <button class="accordian">Section3</button>
+
+    <div class="panel">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis enim sed debitis similique, officiis reprehenderit voluptatibus recusandae esse eos ex, accusantium assumenda odit nesciunt impedit natus expedita porro. Exercitationem, eius!
+    </div>
+
+
+    
+
+    <script>
+
+        let acc=document.getElementsByClassName('accordian');
+
+        let i;
+        for(i=0;i<acc.length;i++){
+            acc[i].addEventListener('click',function(){
+                
+
+                this.classList.toggle("active");
+                let pannel=this.nextElementSibling;
+
+                if(pannel.style.display==='block')pannel.style.display='none';
+                else{
+                    pannel.style.display='block'
+
+                }
+            })
+        }
+    </script>
+
+  </body>
+</html>

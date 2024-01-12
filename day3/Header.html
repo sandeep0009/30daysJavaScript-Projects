@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headers(DAY3)</title>
+    <style>
+     
+        .city{
+            display: none;
+            height: 420px;
+            width: 100%;
+        }
+        
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            height: 30px;
+            background-color: rgb(212, 223, 223);
+            text-align: center;
+            border:  rgb(5, 8, 8);
+            
+        }
+
+        .name {
+            width: 70px;
+            padding: 2px;
+        }
+
+        .name:hover {
+            background-color: rgb(194, 202, 202);
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        #London {
+            background-color: red;
+        }
+
+        #Paris {
+            background-color: blue;
+        }
+
+        #India {
+            background-color: maroon; /* Corrected typo: 'maron' to 'maroon' */
+        }
+
+        #Oswal {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div id="London" class="city">
+            <strong>London</strong>
+            <p>This header belongs to London</p>
+        </div>
+        <div id="Paris" class="city">
+            <strong>Paris</strong>
+            <p>This header belongs to Paris</p>
+        </div>
+        <div id="India" class="city">
+            <strong>India</strong>
+            <p>This header belongs to India</p>
+        </div>
+        <div id="Oswal" class="city">
+            <strong>oswal</strong>
+            <p>This header belongs to oswal</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="name" onclick="headerName(this,'London','red')" id="defaultOpen">
+            <strong>London</strong>
+        </div>
+        <div class="name" onclick="headerName(this,'Paris','blue')">
+            <strong>Paris</strong>
+        </div>
+        <div class="name" onclick="headerName(this,'India','maroon')">
+            <strong>India</strong>
+        </div>
+        <div class="name" onclick="headerName(this,'Oswal','green')">
+            <strong>Oswal</strong>
+        </div>
+    </div>
+
+    <script>
+        function headerName(evt, cite, color) {
+            let cit = document.getElementsByClassName('city');
+            for (let i = 0; i < cit.length; i++) {
+                cit[i].style.display = 'none';
+            }
+
+            let name = document.getElementsByClassName('name');
+            for (let i = 0; i < name.length; i++) {
+                name[i].style.backgroundColor = ''; 
+            }
+
+            document.getElementById(cite).style.display = 'block';
+            evt.style.backgroundColor = color;
+        }
+
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>

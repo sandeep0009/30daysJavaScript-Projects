@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab(day3)</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: rgb(227, 238, 238);
+            padding: 12px 30px;
+            border: 1px solid  rgb(153, 159, 159);
+        }
+
+        .name {
+            padding: 12px 30px;
+            cursor: pointer;
+        }
+
+        .name:hover {
+            background-color:  rgb(173, 185, 185);
+            border-radius: 12px ;
+        }
+
+      
+
+        .tabcontent {
+            display: none;
+            height: 220px;
+            padding: 12px 30px;
+            border: 1px solid  rgb(153, 159, 159);
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="name" onclick="cityName(event, 'London')">
+            <strong>London</strong>
+        </div>
+
+        <div class="name" onclick="cityName(event, 'Paris')">
+            <strong>Paris</strong>
+        </div>
+
+        <div class="name" onclick="cityName(event, 'France')">
+            <strong>France</strong>
+        </div>
+    </div>
+
+    <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    
+    <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+    
+    <div id="France" class="tabcontent">
+        <h3>France</h3>
+        <p>France is the country in Europe.</p>
+    </div>
+
+    <script>
+        function cityName(evt, city) {
+            let name, i;
+
+          
+            let tabcontent = document.getElementsByClassName('tabcontent');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = 'none';
+            }
+
+         
+            name = document.getElementsByClassName('name');
+            for (i = 0; i < name.length; i++) {
+                name[i].className = name[i].className.replace(' active', '');
+            }
+
+            
+            document.getElementById(city).style.display = 'block';
+
+      
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

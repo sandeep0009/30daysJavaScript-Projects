@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchMenu DAY-3</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            background-color: rgb(205, 207, 209);
+            height: 100vh;
+        }
+
+        .container-left {
+            border: 1px solid rgb(138, 138, 139);
+        }
+
+        .container-right {
+            border: 1px solid rgb(138, 138, 139);
+            border-left: none;
+            padding: 20px;
+        }
+
+        .heading {
+            margin: 0;
+        }
+
+        .search-bar {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 12px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="container-left">
+        <div class="heading">
+            <h2>Menu</h2>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search For Menu" id="input" oninput="searchValue()">
+        </div>
+
+        <div class="menu-list">
+            <ul id="ul-item">
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>jQuery</li>
+                <li>Json</li>
+                <li>CSs</li>
+                <li>HTML</li>
+                <li>JAVA</li>
+                <li>CPP</li>
+                <li>RUST</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-right">
+        <h2>Page Content</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eos aspernatur, dolorum natus, ea mollitia eaque corrupti est ipsa eligendi ut cum quam molestiae ipsum excepturi animi perferendis suscipit! Quae.
+        </p>
+
+        <p>
+            Search Menu.........................
+        </p>
+    </div>
+</div>
+
+<script>
+    function searchValue() {
+        let input = document.getElementById('input').value;
+        let ul = document.getElementById('ul-item');
+        let li = ul.getElementsByTagName('li');
+
+        for (let i = 0; i < li.length; i++) {
+            if (li[i].textContent.toLowerCase().indexOf(input.toLowerCase()) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

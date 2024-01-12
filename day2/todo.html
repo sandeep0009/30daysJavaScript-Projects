@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="input" placeholder="Enter your todo" />
+      <button onclick="addTodo()">Add to do</button>
+    </div>
+
+    <div id="display-container"></div>
+
+    <script>
+      let addTodo = () => {
+        let input = document.getElementById("input");
+        displayToDo(input.value);
+        input.value = "";
+      };
+
+      let displayToDo = (val) => {
+        if (val === "" || val === undefined) {
+          return;
+        }
+
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+        li.textContent = val;
+
+        li.addEventListener('click',()=>{
+            ul.removeChild(li)
+        })
+
+ 
+        ul.appendChild(li);
+        let displayContainer = document.getElementById("display-container");
+        displayContainer.appendChild(ul);
+
+       
+      }
+
+
+
+      displayToDo();
+
+
+    </script>
+  </body>
+</html>
