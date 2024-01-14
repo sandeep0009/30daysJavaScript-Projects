@@ -5,7 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day5</title>
 </head>
+
+<style>
+
+    .container{
+        height: 120px;
+        width: 120px;
+        background-color: black;
+        position: absolute;
+    }
+
+
+    .container2{
+        display: none;
+        height: 100vh;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+        animation: zoom 0.5s ease-in-out;
+      
+
+        background-color: brown;
+    }
+
+    .closee{
+        position: absolute;
+        z-index: 1;
+        right: 0px;
+        top: 0px;
+    }
+
+    @keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+</style>
 <body>
     
+
+    <div class="container" id="box">
+        click and get model image
+    </div>
+
+    <div class="container2" id="model">
+
+        you had seen the magic
+    </div>
+
+    <div class="closee" id="close">
+        close
+    </div>
+
+
+    <script>
+
+        let box=document.getElementById('box');
+        box.addEventListener('click',()=>{
+            document.getElementById('model').style.display='block'
+            document.getElementById('close').style.display='block'
+        })
+
+        document.getElementById('close').addEventListener('click',()=>{
+            document.getElementById('model').style.display='none'
+            document.getElementById('close').style.display='none'
+
+        })
+
+
+
+
+    </script>
 </body>
 </html>
